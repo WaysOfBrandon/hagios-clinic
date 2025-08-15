@@ -1,0 +1,97 @@
+
+/* Hagios Clinic — mobile-first, accessible design */
+:root{
+  --bg:#f5fbfb;
+  --ink:#123535;
+  --muted:#5a7a7a;
+  --brand:#1f7a7a;
+  --brand-ink:#0e3e3e;
+  --card:#ffffff;
+  --ring: #7fd0cc;
+  --radius: 12px;
+  --space: clamp(0.75rem, 2vw, 1rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink);
+  background:var(--bg);
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;height:auto}
+.container{width:min(1100px, 92vw);margin-inline:auto}
+.h3{font-size:1.25rem;margin:0 0 .5rem}
+.h4{font-size:1.1rem;margin:0 0 .5rem}
+.tiny-text{font-size:.85rem;color:var(--muted)}
+.list-unstyled{list-style:none;padding:0;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+.skip-link{
+  position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:.5rem .75rem;border-radius:8px;box-shadow:0 6px 20px rgb(0 0 0 / .15)}
+
+.site-header{
+  position:sticky;top:0;background:#fff;border-bottom:1px solid #e6efef;z-index:10
+}
+.header-inner{display:flex;align-items:center;gap:1rem;padding:.5rem var(--space)}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--brand-ink);text-decoration:none}
+.site-nav{margin-left:auto}
+.site-nav ul{display:flex;gap:.5rem;list-style:none;margin:0;padding:0}
+.site-nav a{display:block;padding:.5rem .75rem;border-radius:8px;text-decoration:none;color:var(--ink)}
+.site-nav a:is(:hover,:focus){background: #eef7f7;outline:none}
+.menu-toggle{display:none;margin-left:auto;font-size:1.4rem;background:none;border:none}
+
+@media (max-width: 760px){
+  .menu-toggle{display:block}
+  .site-nav{display:none;position:absolute;inset: 56px 0 auto 0;background:#fff;border-bottom:1px solid #e6efef}
+  .site-nav.open{display:block}
+  .site-nav ul{flex-direction:column;padding: .5rem}
+}
+
+.hero{background: linear-gradient(180deg, #e9f5f4, #f7fbfb)}
+.hero-inner{display:grid;grid-template-columns: 1.1fr .9fr;gap:2rem;align-items:center;padding: clamp(1rem, 4vw, 2rem) 0}
+.hero-copy h1{font-size: clamp(2rem, 4vw, 3rem);margin:.2rem 0 .5rem}
+.actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1rem;border-radius:10px;text-decoration:none;border:1px solid transparent}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-outline{border-color: var(--brand);color: var(--brand-ink);background:transparent}
+.btn-lg{padding: .9rem 1.2rem; font-weight:600}
+
+.trust-badges{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:1rem 0 2rem;padding:0}
+.trust-badges li{background:#fff;border:1px solid #e6efef;border-radius:999px;padding:.5rem .9rem}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.card{background:var(--card);border:1px solid #e6efef;border-radius:var(--radius);padding:1rem}
+.note{background:#fff9e6;border:1px solid #ffe9ad;border-radius:var(--radius);padding:1rem}
+
+@media (max-width: 900px){
+  .hero-inner{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+}
+
+.cta{background:#fff;border:1px solid #e6efef;border-radius:var(--radius);padding:1rem;margin:2rem auto}
+.testimonials{display:grid;gap:1rem;margin:2rem auto}
+.quote{background:#fff;border:1px solid #e6efef;border-radius:var(--radius);padding:1rem}
+
+.prose h1{margin-top:.5rem}
+.prose h2{margin-top:1.5rem}
+.prose ul{padding-left:1.2rem}
+
+.provider-list{display:grid;gap:1rem}
+.provider{display:flex;gap:.8rem;align-items:center;background:#fff;border:1px solid #e6efef;border-radius:var(--radius);padding:.8rem}
+
+.contact-form, .newsletter{display:grid;gap:.5rem;max-width:560px}
+input, textarea{font:inherit;padding:.6rem;border:1px solid #cfe3e3;border-radius:8px;outline:2px solid transparent;outline-offset:2px}
+input:focus, textarea:focus{outline-color: var(--ring)}
+button{font:inherit;cursor:pointer;border:1px solid #0e3e3e;background:#0e3e3e;color:#fff;border-radius:8px;padding:.6rem 1rem}
+button:is(:hover,:focus){opacity:.95}
+
+.site-footer{margin-top:3rem;background:#0f2e2e;color:#d6efef}
+.site-footer a{color:#fff;text-decoration:underline}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;padding:1.5rem 0}
+@media (max-width: 800px){
+  .footer-grid{grid-template-columns:1fr}
+}
